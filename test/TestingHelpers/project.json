@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-alpha",
+
+  "dependencies": {
+    "System.IO.Abstractions": { "target": "project" }
+  },
+
+  "frameworks": {
+    "net452": {
+      "frameworkAssemblies": {
+        "System.Diagnostics.Contracts": "4.0.0"
+      }
+    },
+    "netstandard1.6": {
+      "dependencies": {
+        "NETStandard.Library": "1.6.0",
+        "System.Diagnostics.Contracts": "4.0.1",
+        "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
+      }
+    }
+  }
+}

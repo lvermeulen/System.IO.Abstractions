@@ -44,7 +44,7 @@ public class MyComponent
 The library also ships with a series of test helpers to save you from having to mock out every call, for basic scenarios. They are not a complete copy of a real-life file system, but they'll get you most of the way there.
 
 ```csharp
-[Test]
+[Fact]
 public void MyComponent_Validate_ShouldThrowNotSupportedExceptionIfTestingIsNotAwesome()
 {
     // Arrange
@@ -64,7 +64,7 @@ public void MyComponent_Validate_ShouldThrowNotSupportedExceptionIfTestingIsNotA
     catch (NotSupportedException ex)
     {
         // Assert
-        Assert.AreEqual("We can't go on together. It's not me, it's you.", ex.Message);
+        Assert.Equal("We can't go on together. It's not me, it's you.", ex.Message);
         return;
     }
 

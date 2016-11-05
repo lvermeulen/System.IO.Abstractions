@@ -1,0 +1,28 @@
+﻿{
+  "version": "1.0.0",
+  "testRunner": "xunit",
+
+  "dependencies": {
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "System.IO.Abstractions": { "target": "project" },
+    "TestingHelpers": { "target": "project" },
+    "xunit": "2.2.0-beta3-build3402",
+    "System.Xml.XmlSerializer": "4.0.11"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        }
+      }
+    }
+  },
+
+  "runtimes": {
+    "win10-x86": {},
+    "win10-x64": {}
+  }
+}
