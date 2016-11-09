@@ -24,8 +24,7 @@ namespace System.IO.Abstractions.TestHelpers.Tests
                 Action writeEnumberableUtf32 = () => fileSystem.File.WriteAllLines(Path, fileContentEnumerable, Encoding.UTF32);
                 Action writeArray = () => fileSystem.File.WriteAllLines(Path, fileContentArray);
                 Action writeArrayUtf32 = () => fileSystem.File.WriteAllLines(Path, fileContentArray, Encoding.UTF32);
-                string expectedContent = string.Format(CultureInfo.InvariantCulture,
-                    "first line{0}second line{0}third line{0}fourth and last line{0}", Environment.NewLine);
+                string expectedContent = $"first line{Environment.NewLine}second line{Environment.NewLine}third line{Environment.NewLine}fourth and last line{Environment.NewLine}";
 
                 // IEnumerable
                 yield return new object[] { fileSystem, writeEnumberable, expectedContent };
@@ -243,7 +242,7 @@ namespace System.IO.Abstractions.TestHelpers.Tests
 
             // Assert
             UnauthorizedAccessException exception = Assert.Throws<UnauthorizedAccessException>(action);
-            string expectedMessage = string.Format(CultureInfo.InvariantCulture, "Access to the path '{0}' is denied.", path);
+            string expectedMessage = $"Access to the path '{path}' is denied.";
             Assert.Equal(exception.Message, expectedMessage);
         }
 
@@ -259,7 +258,7 @@ namespace System.IO.Abstractions.TestHelpers.Tests
 
             // Assert
             UnauthorizedAccessException exception = Assert.Throws<UnauthorizedAccessException>(action);
-            string expectedMessage = string.Format(CultureInfo.InvariantCulture, "Access to the path '{0}' is denied.", path);
+            string expectedMessage = $"Access to the path '{path}' is denied.";
             Assert.Equal(exception.Message, expectedMessage);
         }
 

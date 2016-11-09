@@ -123,7 +123,7 @@ namespace System.IO.Abstractions.TestingHelpers
             {
                 if (!overwrite)
                 {
-                    throw new IOException(string.Format(CultureInfo.InvariantCulture, "The file {0} already exists.", destFileName));
+                    throw new IOException($"The file {destFileName} already exists.");
                 }
 
                 _mockFileDataAccessor.RemoveFile(destFileName);
@@ -239,7 +239,7 @@ namespace System.IO.Abstractions.TestingHelpers
                             Properties.Resources.COULD_NOT_FIND_PART_OF_PATH_EXCEPTION, path));
                     }
 
-                    throw new FileNotFoundException(string.Format(CultureInfo.InvariantCulture, "Could not find file '{0}'.", path));
+                    throw new FileNotFoundException($"Could not find file '{path}'.");
                 }
             }
 
@@ -321,7 +321,7 @@ namespace System.IO.Abstractions.TestingHelpers
 
             if (sourceFile == null)
             {
-                throw new FileNotFoundException(string.Format(CultureInfo.InvariantCulture, "The file \"{0}\" could not be found.", sourceFileName), sourceFileName);
+                throw new FileNotFoundException($"The file \"{sourceFileName}\" could not be found.", sourceFileName);
             }
 
             DirectoryInfoBase destDir = _mockFileDataAccessor.Directory.GetParent(destFileName);
@@ -356,7 +356,7 @@ namespace System.IO.Abstractions.TestingHelpers
 
             if (mode == FileMode.CreateNew && exists)
             {
-                throw new IOException(string.Format(CultureInfo.InvariantCulture, "The file '{0}' already exists.", path));
+                throw new IOException($"The file '{path}' already exists.");
             }
 
             if ((mode == FileMode.Open || mode == FileMode.Truncate) && !exists)
@@ -421,7 +421,7 @@ namespace System.IO.Abstractions.TestingHelpers
 
             if (!_mockFileDataAccessor.FileExists(path))
             {
-                throw new FileNotFoundException(string.Format(CultureInfo.InvariantCulture, "Can't find {0}", path));
+                throw new FileNotFoundException($"Can't find {path}");
             }
 
             return _mockFileDataAccessor
@@ -441,7 +441,7 @@ namespace System.IO.Abstractions.TestingHelpers
 
             if (!_mockFileDataAccessor.FileExists(path))
             {
-                throw new FileNotFoundException(string.Format(CultureInfo.InvariantCulture, "Can't find {0}", path));
+                throw new FileNotFoundException($"Can't find {path}");
             }
 
             return encoding
@@ -455,7 +455,7 @@ namespace System.IO.Abstractions.TestingHelpers
 
             if (!_mockFileDataAccessor.FileExists(path))
             {
-                throw new FileNotFoundException(string.Format(CultureInfo.InvariantCulture, "Can't find {0}", path));
+                throw new FileNotFoundException($"Can't find {path}");
             }
 
             return ReadAllText(path, MockFileData.DefaultEncoding);
