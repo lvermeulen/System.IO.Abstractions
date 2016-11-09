@@ -45,7 +45,7 @@ namespace System.IO.Abstractions.TestingHelpers
 
             if (_mockFileDataAccessor.FileExists(path))
             {
-                string message = string.Format(CultureInfo.InvariantCulture, @"Cannot create ""{0}"" because a file or directory with the same name already exists.", path);
+                string message = $@"Cannot create ""{path}"" because a file or directory with the same name already exists.";
                 IOException ex = new IOException(message);
                 ex.Data.Add("Path", path);
                 throw ex;
@@ -180,23 +180,16 @@ namespace System.IO.Abstractions.TestingHelpers
                 bool hasExtensionLengthOfThree = extension.Length == 4 && !extension.Contains("*") && !extension.Contains("?");
                 if (hasExtensionLengthOfThree)
                 {
-                    string fileNamePatternSpecial = string.Format(CultureInfo.InvariantCulture, "{0}[^.]", fileNamePattern);
-                    pathPatternSpecial = string.Format(
-                        CultureInfo.InvariantCulture,
-                        isUnix ? @"(?i:^{0}{1}{2}(?:/?)$)" : @"(?i:^{0}{1}{2}(?:\\?)$)",
-                        Regex.Escape(path),
-                        searchOption == SearchOption.AllDirectories ? allDirectoriesPattern : string.Empty,
-                        fileNamePatternSpecial);
+                    string fileNamePatternSpecial = $"{fileNamePattern}[^.]";
+                    pathPatternSpecial = isUnix
+                        ? $@"(?i:^{Regex.Escape(path)}{(searchOption == SearchOption.AllDirectories ? allDirectoriesPattern : string.Empty)}{fileNamePatternSpecial}(?:/?)$)"
+                        : $@"(?i:^{Regex.Escape(path)}{(searchOption == SearchOption.AllDirectories ? allDirectoriesPattern : string.Empty)}{fileNamePatternSpecial}(?:\\?)$)";
                 }
             }
 
-            string pathPattern = string.Format(
-                CultureInfo.InvariantCulture,
-                isUnix ? @"(?i:^{0}{1}{2}(?:/?)$)" : @"(?i:^{0}{1}{2}(?:\\?)$)",
-                Regex.Escape(path),
-                searchOption == SearchOption.AllDirectories ? allDirectoriesPattern : string.Empty,
-                fileNamePattern);
-
+            string pathPattern = isUnix
+                ? $@"(?i:^{Regex.Escape(path)}{(searchOption == SearchOption.AllDirectories ? allDirectoriesPattern : string.Empty)}{fileNamePattern}(?:/?)$)"
+                : $@"(?i:^{Regex.Escape(path)}{(searchOption == SearchOption.AllDirectories ? allDirectoriesPattern : string.Empty)}{fileNamePattern}(?:\\?)$)";
 
             return files
                 .Where(p =>

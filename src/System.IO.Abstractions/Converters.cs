@@ -19,11 +19,7 @@ namespace System.IO.Abstractions
             return (DirectoryInfoBase)item;
         }
 
-        throw new NotImplementedException(string.Format(
-            CultureInfo.InvariantCulture,
-            "The type {0} is not recognized by the System.IO.Abstractions library.",
-            item.GetType().AssemblyQualifiedName
-        ));
+        throw new NotImplementedException($"The type {item.GetType().AssemblyQualifiedName} is not recognized by the System.IO.Abstractions library.");
     })
     .ToArray();
 

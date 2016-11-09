@@ -16,11 +16,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{ABB4B8E1-6805-495F-9E7C-A620DB8C2914}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7532886F-BD27-421E-BE57-524E28DD439B}"
+	ProjectSection(SolutionItems) = preProject
+		build\build.ps1 = build\build.ps1
+		build\test.ps1 = build\test.ps1
+	EndProjectSection
+EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "System.IO.Abstractions", "src\System.IO.Abstractions\System.IO.Abstractions.xproj", "{AC501609-1E30-442F-8988-24CCC4CD981E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TestHelpers.Tests", "test\TestHelpers.Tests\TestHelpers.Tests.xproj", "{25FB7966-3500-498D-8FD4-75909F952AB2}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TestingHelpers", "src\TestingHelpers\TestingHelpers.xproj", "{72EAD708-B23C-439A-A8A3-3B38BE0C4789}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TestingHelpers", "test\TestingHelpers\TestingHelpers.xproj", "{72EAD708-B23C-439A-A8A3-3B38BE0C4789}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TestHelpers.Tests", "test\TestHelpers.Tests\TestHelpers.Tests.xproj", "{25FB7966-3500-498D-8FD4-75909F952AB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,18 +38,18 @@ Global
 		{AC501609-1E30-442F-8988-24CCC4CD981E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC501609-1E30-442F-8988-24CCC4CD981E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC501609-1E30-442F-8988-24CCC4CD981E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{25FB7966-3500-498D-8FD4-75909F952AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{25FB7966-3500-498D-8FD4-75909F952AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{25FB7966-3500-498D-8FD4-75909F952AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72EAD708-B23C-439A-A8A3-3B38BE0C4789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{72EAD708-B23C-439A-A8A3-3B38BE0C4789}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72EAD708-B23C-439A-A8A3-3B38BE0C4789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72EAD708-B23C-439A-A8A3-3B38BE0C4789}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25FB7966-3500-498D-8FD4-75909F952AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25FB7966-3500-498D-8FD4-75909F952AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25FB7966-3500-498D-8FD4-75909F952AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{25FB7966-3500-498D-8FD4-75909F952AB2} = {ABB4B8E1-6805-495F-9E7C-A620DB8C2914}
-		{72EAD708-B23C-439A-A8A3-3B38BE0C4789} = {ABB4B8E1-6805-495F-9E7C-A620DB8C2914}
 	EndGlobalSection
 EndGlobal
